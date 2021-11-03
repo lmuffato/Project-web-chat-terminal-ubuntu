@@ -1,7 +1,10 @@
+# Aplicação de chat online com o visual do terminal do ubunto
+
 Pacotes utilizados:
 
 ```
 npm install express
+npm install body-parser
 npm install cors
 npm install --save-dev nodemon
 npm install socket.io
@@ -10,6 +13,17 @@ npm install cors
 npm install dotevn
 npm install jest /* pacote para testes */
 npm install mongodb /* Apenas para se desejar salvar o histórico de mensagens */
+```
+
+Gerenciar o heroky no terminal
+```
+sudo snap install hello-world
+sudo snap install heroku --classic
+```
+
+É necessário fazer login no heroku
+```
+heroku login
 ```
 
 ## Problemas como o pacote mongodb
@@ -73,4 +87,30 @@ Outra alternativa
 
 ```
 npm install text-encoding --save
+```
+
+1. Renomeando um repositório
+### Para renomear um repositorio/aplicação, é necessário que ela esteja no remote, caso não esteja utilizar o comando abaixo:
+heroku git:remote -a <nomeDoAplicativo>
+heroku git:remote -a still-mesa-13667
+
+### Mudando no nome do aplicativo:
+heroku apps:rename webchat-terminal --app still-mesa-13667
+
+### Mudando o nome do remote
+git remote rename heroku webchat-terminal
+
+12. Variáveis de ambiente
+heroku config:set <NOME_DA_VARIAVEL>=<valor> --app <nomeDoAplicativo>
+### Exemplo:
+heroku config:set MESSAGE='Variáveis funcionam!!!' --app nome-do-seu-app-12345
+
+### Vendo quais variáveis estão configuradas na aplicação
+heroku config --app <nomeDoAplicativo>
+
+# Fazendo deploy no heroku
+
+```javaScript
+git push <remote> <branch-do-git>:master git push <nome-da-aplicacao>
+
 ```
