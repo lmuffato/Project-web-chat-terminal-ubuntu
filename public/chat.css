@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #2d0922;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: white;
+  border: 3px solid #2d0922;
+  border-radius: 20px;
+}
+
+body {
+  background-color: #2d0922;
+  font-family: monospace;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.chat-title {
+  margin-bottom: 10px;
+}
+
+.title1 , .title2 , .usersCount {
+  display: inline;
+  font-weight: 900;
+}
+
+.title1 {
+  color: white;
+}
+
+.title2 {
+  color: #4b890a;
+}
+
+.usersCount {
+  color: #4b890a;
+}
+
+.label-nickname1 , .label-nickname2 , .label-nickname3 , .label-nickname4 {
+  display: inline;
+  font-weight: 900;
+}
+
+.label-nickname1 {
+  color: #4b890a;
+}
+
+.label-nickname2 {
+  color: white;
+}
+
+.label-nickname3 {
+  color: #335a9e;
+}
+
+.label-nickname4 {
+  color: white;
+}
+
+@media screen and ( max-width : 600px ) {
+
+  .liClient , .title1 , .title2 , .usersCount , .label-nickname1 {
+    font-size: 10px;
+  }
+}
+
+@media screen and ( max-width : 600px ) {
+
+  .label-nickname2 , .label-nickname3 , .label-nickname4 {
+    font-size: 10px;
+  }
+}

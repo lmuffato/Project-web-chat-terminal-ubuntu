@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO - trybe</title>
+     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+    <link rel="stylesheet" href="./chat.css">
+    <link rel="stylesheet" href="./messages.css">
+     <link rel="stylesheet" href="./clients.css">
+      
+  </head>
+  <body>
+    <header class='header'>
+
+      <div class='chat-title'>
+        <p class='title1'>WEB CHAT:</p><p class='title2'>CONNECTED</p>
+      </div>
+        <p class='title1'>ONLINE USERS:</p><p class='usersCount'>10</p>
+        <ul id='clients' class='clients' ></ul>
+
+      <div>
+        <button
+          id='btn-nickName'
+          class='btn-nickName'
+          data-testid="nickname-button"
+        >
+          <p class='btn-txt1'>nickName</p>
+        </button><p
+          class='btn-txt2'>:</p><p
+          class='btn-txt3'>~</P><p
+          class='btn-txt4'>$</P>
+        <input
+          id='nickName'
+          class='nickName'
+          autocomplete='off'
+          data-testid="nickname-box"
+        >
+      </div>
+
+    </header>
+
+    <div
+      id='box-message'
+      class='container-box-message'>
+      <ul
+        id='mensagem'
+        class='mensagem'
+      >
+      </ul>
+    </div >
+    <div class='container-form-msg'>
+      <form
+        action=""
+        id='form-msg'
+        class='form-msg'
+      >
+        <button
+          id='btn-msg'
+          class='btn-msg'
+          data-testid="send-button"
+        ><p id='btn-user' class='btn-input1'>user</p><p class='btn-input2'>/Send</p>
+        </button><p
+          class='btn-input3'>:</p><p
+          class='btn-input4'>~</P><p
+          class='btn-input3'>$</P>
+        <!--
+        <textarea
+          id='messageInput'
+          class='messageInput'
+          autocomplete='off'
+          data-testid="message-box"
+        >
+        </textarea>
+        -->
+        <input
+          id='messageInput'
+          class='messageInput'
+          autocomplete='off'
+          data-testid="message-box"
+        >
+      </form>
+    </div>
+    <script src='./script.js' ></script>
+  </body>
+</html>
