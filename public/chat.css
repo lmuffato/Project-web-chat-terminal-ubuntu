@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: monospace;
 }
 
 *::-webkit-scrollbar {
@@ -17,6 +18,26 @@
   border-radius: 20px;
 }
 
+@media screen and ( max-device-width : 480px)
+  and ( orientation : portrait ) {
+
+    *::-webkit-scrollbar {
+      width: 15px;
+      height: 20px;
+    }
+    
+    *::-webkit-scrollbar-track {
+      background: #2d0922;
+    }
+    
+    *::-webkit-scrollbar-thumb {
+      background-color: white;
+      border: 3px solid #2d0922;
+      border-radius: 20px;
+      height: 20px;
+    }
+}
+
 body {
   background-color: #2d0922;
   font-family: monospace;
@@ -28,9 +49,9 @@ body {
   margin-bottom: 10px;
 }
 
-.title1 , .title2 , .usersCount {
+.title1 , .title2 , .usersCount, .author1, .author2 {
   display: inline;
-  font-weight: 900;
+  /* font-weight: 900; */
 }
 
 .title1 {
@@ -47,7 +68,7 @@ body {
 
 .label-nickname1 , .label-nickname2 , .label-nickname3 , .label-nickname4 {
   display: inline;
-  font-weight: 900;
+  /* font-weight: 900; */
 }
 
 .label-nickname1 {
@@ -68,14 +89,29 @@ body {
 
 @media screen and ( max-width : 600px ) {
 
-  .liClient , .title1 , .title2 , .usersCount , .label-nickname1 {
+  .liClient , .title1 , .title2 , .usersCount , .label-nickname1,
+  .label-nickname2 , .label-nickname3 , .label-nickname4 {
     font-size: 10px;
   }
 }
 
-@media screen and ( max-width : 600px ) {
+@media screen and ( max-width : 400px ) {
 
+  .liClient , .title1 , .title2 , .usersCount , .label-nickname1,
   .label-nickname2 , .label-nickname3 , .label-nickname4 {
-    font-size: 10px;
+    font-size: 15px;
   }
+}
+
+.author {
+  margin-top: 10px;
+}
+
+.author1 {
+  color: white;
+}
+
+.author2 {
+  text-decoration: none;
+  color: #4b890a;
 }

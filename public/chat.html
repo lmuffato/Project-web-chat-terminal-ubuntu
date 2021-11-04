@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="./chat.css">
     <link rel="stylesheet" href="./messages.css">
      <link rel="stylesheet" href="./clients.css">
-      
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   </head>
   <body>
+    <div class='author'>
+      <p class='author1'>Create By:</p>
+      <a href="https://github.com/lmuffato" class='author2'>Lucas Muffato</a>
+    </div>
     <header class='header'>
-
+      
       <div class='chat-title'>
         <p class='title1'>WEB CHAT:</p><p class='title2'>CONNECTED</p>
       </div>
-        <p class='title1'>ONLINE USERS:</p><p class='usersCount'>10</p>
+        <p class='title1'>ONLINE USERS:</p><p class='usersCount'>0</p>
         <ul id='clients' class='clients' ></ul>
 
-      <div>
+      <div class='container-input'>
         <button
           id='btn-nickName'
           class='btn-nickName'
@@ -31,8 +35,9 @@
           class='btn-txt4'>$</P>
         <input
           id='nickName'
+          type='text'
           class='nickName'
-          autocomplete='off'
+          autocomplete='on'
           data-testid="nickname-box"
         >
       </div>
@@ -58,26 +63,29 @@
           id='btn-msg'
           class='btn-msg'
           data-testid="send-button"
+          type="submit"
         ><p id='btn-user' class='btn-input1'>user</p><p class='btn-input2'>/Send</p>
         </button><p
           class='btn-input3'>:</p><p
           class='btn-input4'>~</P><p
           class='btn-input3'>$</P>
-        <!--
-        <textarea
-          id='messageInput'
-          class='messageInput'
-          autocomplete='off'
-          data-testid="message-box"
-        >
-        </textarea>
-        -->
         <input
           id='messageInput'
+          type='text'
           class='messageInput'
           autocomplete='off'
           data-testid="message-box"
+          rows='2'
         >
+        <!--
+        <div id='container-texArea' class='container-texArea'>
+          <textarea
+            type="submit"
+            id='textArea'
+            class='textArea'
+            rows='1'
+          ></textarea>-->
+        </div>
       </form>
     </div>
     <script src='./script.js' ></script>

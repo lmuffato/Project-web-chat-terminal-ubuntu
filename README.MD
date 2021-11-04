@@ -100,7 +100,7 @@ heroku apps:rename webchat-terminal --app still-mesa-13667
 ### Mudando o nome do remote
 git remote rename heroku webchat-terminal
 
-12. Variáveis de ambiente
+2. Variáveis de ambiente
 heroku config:set <NOME_DA_VARIAVEL>=<valor> --app <nomeDoAplicativo>
 ### Exemplo:
 heroku config:set MESSAGE='Variáveis funcionam!!!' --app nome-do-seu-app-12345
@@ -112,5 +112,8 @@ heroku config --app <nomeDoAplicativo>
 
 ```javaScript
 git push <remote> <branch-do-git>:master git push <nome-da-aplicacao>
-
+git push heroku master: master git push webchat-terminal
 ```
+3. Configurar as variáveis de ambiente
+heroku config:set PM2_PUBLIC_KEY="<valor>" --app <nomeDaAplicacao>
+heroku config:set PORT="3000" --app webchat-terminal

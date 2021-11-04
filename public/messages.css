@@ -4,20 +4,15 @@
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
+  display: block;
 }
 
-@media screen and ( max-width : 600px ) {
+@media screen and ( max-device-width : 480px)
+  and ( orientation : portrait ) {
 
-  .container-box-message {
-    max-height: 250px;
-  }
-}
-
-@media screen and ( max-height : 600px ) {
-
-  .container-box-message {
-    max-height: 200px;
-  }
+    .container-box-message {
+      max-height: 250px;
+    }
 }
 
 .liMessage {
@@ -26,7 +21,7 @@
   display: block;
   font-size: 16px;
   margin-bottom: 10px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   overflow-wrap: break-word;
   text-decoration: none;
   width: 80%;
@@ -35,7 +30,9 @@
 .btn-msg , .btn-input1 , .btn-input2 , .btn-input3 , .btn-input4 , .messageInput {
   display: inline;
   font-size: 16px;
-  font-weight: 900;
+  /* font-weight: 900; */
+  position: relative;
+  z-index: 1;
 }
 
 .btn-msg {
@@ -67,26 +64,69 @@
   color: #335a9e;
 }
 
+.container-input {
+  width: 100%;
+}
+
 .messageInput {
+  display: inline;
+  box-sizing: content-box;
   background-color: #2d0922;
   border: 0;
   border-style: none;
   color: white;
-  margin-top: 10px;
   outline: none;
-  width: 45%;
+  width: 100px;
+  max-height: 100px;
+
+  word-wrap: break-word;
+    word-break: break-word;
+    width: 100px;
 }
 
-@media screen and ( max-width : 600px ) {
+/* .container-texArea {
+display: inline;
+vertical-align: middle;
+ z-index: 0;
+ width: 50px;
+}
 
-  .liMessage , .btn-msg , .btn-input1 , .btn-input2 , .btn-input3 {
+textArea {
+  font-family: monospace;
+  font-weight: 100;
+  box-sizing: content-box;
+  resize: none;
+  width: 50px;
+  font-size: 16px;
+  border: 0;
+  border-style: none;
+  outline: none;
+  color: white;
+  text-align: left;
+  white-space: break-spaces;
+  margin-bottom: 0;
+  background-color: #2d0922;
+} */
+
+/* textArea::placeholder {
+  color: white;
+  opacity: 1;
+} */
+
+
+/* @media screen and ( max-width : 600px ) {
+
+  .liMessage , .btn-msg , .btn-input1 , .btn-input2 ,
+  .btn-input3, .btn-input4 , .messageInput {
     font-size: 10px;
   }
 }
 
-@media screen and ( max-width : 600px ) {
+@media screen and ( max-device-width : 480px)
+  and ( orientation : portrait ) {
 
-  .btn-input4 , .messageInput {
-    font-size: 10px;
-  }
-}
+    .liMessage , .btn-msg , .btn-input1 , .btn-input2 ,
+    .btn-input3, .btn-input4 , .messageInput {
+      font-size: 35px;
+    }
+} */

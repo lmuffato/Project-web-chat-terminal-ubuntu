@@ -1,0 +1,8 @@
+apps:
+
+  - name: lmuffato
+    script: ./index.js
+    watch: false
+    exec_mode: cluster
+    instances: 2
+    max_memory_restart: 200M

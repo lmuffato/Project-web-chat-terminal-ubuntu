@@ -9,6 +9,22 @@ const countUserOnline = (usersCount) => {
   document.querySelector('.usersCount').innerText = usersCount;
 };
 
+// document.querySelector('.messageInput').style.width='500px'
+
+const textAreaShape = () => {
+  const inputMessage = getDocumenById('messageInput');
+  inputMessage.addEventListener('input', function (event) {
+    const textAreaSize = inputMessage.value.length
+    console.log(textAreaSize);
+    if (textAreaSize > 7) { 
+      inputMessage.placeholder='$';
+      return inputMessage.style.width = "100%";
+    }
+    inputMessage.placeholder='';
+    return inputMessage.style.width = `${70}px`;
+  });
+}
+
 const changeColorUserNick = () => {
   const myNick = document.getElementsByClassName('liClient')[0];
   myNick.style.color = '#bd9b04';
@@ -51,18 +67,42 @@ const saveNickNameinToserver = () => {
   return null;
 };
 
+const actionSaveNickKeyEnter = () => {
+  const input = document.getElementById('nickName');
+  input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+     event.preventDefault();
+     btnUpdateNickName.click();
+    }
+  });
+};
+
 // Ao clicar no botõa para enviar a mensagem
 const eventSendMessage = () => {
+  // const btn = document.querySelector('.btn-msg')
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     const inputMessage = getDocumenById('messageInput').value;
+    // const inputMessage = getDocumenById('textArea').value;
     if (!inputMessage || inputMessage === '') return null;
     const inputNickName = myNickName;
     const message = { chatMessage: inputMessage, nickname: inputNickName };
     getDocumenById('messageInput').value = '';
+    // inputMessage.style.width = `${80}px`
+    // getDocumenById('textArea').value = '';
     sendMessageToserver(message);
     autoScrolling();
     return message;
+  });
+};
+
+const actionSendMsgKeyEnter = () => {
+  const inputMessage = getDocumenById('messageInput');
+  inputMessage.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13 || event.keyCode === 11) {
+     event.preventDefault();
+     document.querySelector('.btn-msg').click();
+    }
   });
 };
 
@@ -128,4 +168,7 @@ window.onload = () => {
   eventSendMessage();
   saveNickNameinToserver();
   autoScrolling();
+  actionSaveNickKeyEnter();
+  textAreaShape();
+  actionSendMsgKeyEnter();
 };
