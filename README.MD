@@ -1,6 +1,8 @@
 # Aplicação de chat online com o visual do terminal do Ubunto 20.04 LTS
 
-![image](./images/web-chat-terminal-animated.gif)
+<div>
+<img src='./images/web-chat-terminal-animated.gif' height='500px'>
+</div>
 
 #### Link da Aplicação Online
 A aplicação teve o deploy no Heroku, e pode ser acessa online pelo link abaixo:</br>
@@ -57,7 +59,9 @@ npm run dev
 # Utilizando o chat na rede local
 Para acessar o chat em uma rede, seja por uma rede Wifi ou por cabeamento, basta ir na barra de url do navegador e digitar o ip da máquina que está executando o código e a porta.
 
-![image](./images/web-chat-terminal-in-server.png)
+<div>
+<img src='./images/web-chat-terminal-in-server.png' height='500px'>
+</div>
 
 No linux, você pode descobrir o ip da máquina pelo seguite comando:
 ```
@@ -70,13 +74,14 @@ No meu caso, o ip da máquina que está executando a aplicação é `192.168.2.1
 192.168.2.104:3000
 ```
 E pronto, agora qualquer um da rede pode conversar no chat.
-![image](./web-chat-terminal-in-smartphone.png)
-
-</br></br>
+<div>
+<img src='./images/web-chat-terminal-in-smartphone.png' height='500px'>
+</div>
 
 # Alterando a porta da aplicação
 A configuração da porta utilizada pela aplicação é feita na variável de ambiente que deve ficar na raiz da pasta.
 
+Normalmente, este a
 Quando você fizer o clone do projeto, não encontrará esse arquivo, pois ele está listado no .gitignore, uma vez que este arquivo normalmente é utilizado para armazenar informações sensíveis, como senhas ou chaves de criptografia.
 Apesar de não ser o caso, é bom manter o hábito 😉.
 </br></br>
