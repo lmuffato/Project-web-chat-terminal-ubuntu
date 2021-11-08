@@ -79,10 +79,9 @@ E pronto, agora qualquer um da rede pode conversar no chat.
 </div>
 
 # Alterando a porta da aplicação
-A configuração da porta utilizada pela aplicação é feita na variável de ambiente que deve ficar na raiz da pasta.
+A configuração da porta utilizada pela aplicação é feita na variável de ambiente que deve ficar na raiz da pasta do projeto, no arquivo `.env`.
 
-Normalmente, este a
-Quando você fizer o clone do projeto, não encontrará esse arquivo, pois ele está listado no .gitignore, uma vez que este arquivo normalmente é utilizado para armazenar informações sensíveis, como senhas ou chaves de criptografia.
+Quando você fizer o clone do projeto, não encontrará este arquivo, pois ele está listado no .gitignore, uma vez que este arquivo normalmente é utilizado para armazenar informações sensíveis, como senhas ou chaves de criptografia.
 Apesar de não ser o caso, é bom manter o hábito 😉.
 </br></br>
 
@@ -98,5 +97,3 @@ O arquivo index.js busca a constante PORT dentro do arquivo `.env`, e caso ele n
 Eu desenvolvi essa aplicação para desenvovler e treinar algumas habilidades, ou seja, é uma aplicação para fins didáticos e não comerciais. Por isso alguns arquivos, existem trechos de código comentados, de alguns recursos e estilos que não estão habilitados na aplicação em funcionamento.
 
 A função desses trechos comentados, é servir de resumo e lembrente (pra mim e para qualquer um que esteja olhando o código) de como utilizar esses funcionalidades.
-</br>
-
