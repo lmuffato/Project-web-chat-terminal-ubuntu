@@ -1,4 +1,4 @@
-const { dateConvertBrasilAMPM } = require('./dateService.js');
+const { dateConvertBrasilAMPM } = require('./dateServices.js');
 
 let activeUsers = [];
 

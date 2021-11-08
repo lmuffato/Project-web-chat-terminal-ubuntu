@@ -84,6 +84,16 @@
     width: 100px;
 }
 
+/* @media screen and ( max-device-width : 400px)
+  and ( orientation : portrait )
+  {
+    .messageInput {
+      width: 100px;
+      font-size: 15px;
+      background-color: red;
+    }
+} */
+
 /* .container-texArea {
 display: inline;
 vertical-align: middle;
@@ -121,12 +131,4 @@ textArea {
     font-size: 10px;
   }
 }
-
-@media screen and ( max-device-width : 480px)
-  and ( orientation : portrait ) {
-
-    .liMessage , .btn-msg , .btn-input1 , .btn-input2 ,
-    .btn-input3, .btn-input4 , .messageInput {
-      font-size: 35px;
-    }
-} */
+*/

@@ -5,7 +5,7 @@ const {
   sendNickNameListFromAllUsers,
   removeUserDisconnected,
   updateNickName,
- } = require('./utils/utils');
+ } = require('./socketServices');
 
 /* QUANDO UM USUÁIRO É CONECTADO */
 module.exports = (io) => io.on('connection', (socket) => {

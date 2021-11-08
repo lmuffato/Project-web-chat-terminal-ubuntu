@@ -1,119 +1,97 @@
-# Aplicação de chat online com o visual do terminal do ubunto
+# Aplicação de chat online com o visual do terminal do Ubunto 20.04 LTS
 
-Pacotes utilizados:
+![image](./images/web-chat-terminal-animated.gif)
 
-```
-npm install express
-npm install body-parser
-npm install cors
-npm install --save-dev nodemon
-npm install socket.io
-npm install socket.io-client
-npm install cors
-npm install dotevn
-npm install jest /* pacote para testes */
-npm install mongodb /* Apenas para se desejar salvar o histórico de mensagens */
-```
+#### Link da Aplicação Online
+A aplicação teve o deploy no Heroku, e pode ser acessa online pelo link abaixo:</br>
+https://webchat-terminal.herokuapp.com</br>
 
-Gerenciar o heroky no terminal
-```
-sudo snap install hello-world
-sudo snap install heroku --classic
-```
+## Funcionalidades:
 
-É necessário fazer login no heroku
-```
-heroku login
-```
+### 1. Lista de usuários conectados
+Quando conectado, o nome do usuário é gerado automaticamente pelos 16 primeiros caracteres do id da conexão fornecido pelo socket.</br>
+Obs.: O nome do usuário sempre é mostrado no topo da lista, na cor amarela. Os nomes dos demais usuários é exibido de a ordem de conexão.</br></br>
 
-## Problemas como o pacote mongodb
-Ao tentar colocar a api online, retorna o seguinte ero:
+### 2. Personalizar o nome de usuário
+Para alterar o nome do usuário, basta clicar na frente do `nickName:~$`, digitar o nome, e clicar no `nickName:~$` ou apertar enter.</br></br>
+
+### 3. Enviar mensagem no chat
+Para enviar uma mensagem, basta clicar na frente do `/Send:~$`, escrever o nome e clicar no `/Send:~$` ou apertar enter.</br>
+Obs.: O nome atrás do `/Send~$` muda de acordo com o nome do usuário</br></br>
+
+### 4. Design responsivo
+O visual da aplicação é responsivo, se adaptando a proporção da tela de monitores e smartphones.</br></br>
+
+# Para executar localmente
+
+#### 1. Clone o projeto
 ```
-const utf8Encoder = new util.TextEncoder()
+git clone git@github.com:lmuffato/web-chat-terminal-ubunto.git;
 ```
 
-Para corrigir:
-
-Lá na pasta node_modules:
+#### 2. Entre na pasta:
 ```
-whatwg-url/dist/encoding
+cd web-chat-terminal-ubunto;
 ```
 
-dentro do "use strict" ja na primeira linha, coloca isso:
-```javaScript
-const util = require('util');
+#### 3. Instale as dependências:;
 ```
-Nas duas linhas seguintes:
-Substituir:
-```javaScript
-const utf8Encoder = new TextEncoder();
-```
-Por:
-```javaScript
-const utf8Encoder = new util.TextEncoder();
-```
-e
-
-Substituir:
-```javaScript
-const utf8Decoder = new TextDecoder("utf-8", { ignoreBOM: true });
-```
-Por:
-```javaScript
-const utf8Decoder = new util.TextDecoder("utf-8", { ignoreBOM: true }); (editado)
-```
-## O arquivo deve ficar assim:
-
-```javaScript
-// "use strict";
-const util = require('util');
-const utf8Encoder = new util.TextEncoder()
-const utf8Decoder = new util.TextDecoder("utf-8", { ignoreBOM: true });
-
-function utf8Encode(string) {
-  return utf8Encoder.encode(string);
-}
-
-function utf8DecodeWithoutBOM(bytes) {
-  return utf8Decoder.decode(bytes);
-}
-
-module.exports = {
-  utf8Encode,
-  utf8DecodeWithoutBOM
-};
-```
-Outra alternativa
-
-```
-npm install text-encoding --save
+npm install
 ```
 
-1. Renomeando um repositório
-### Para renomear um repositorio/aplicação, é necessário que ela esteja no remote, caso não esteja utilizar o comando abaixo:
-heroku git:remote -a <nomeDoAplicativo>
-heroku git:remote -a still-mesa-13667
+#### 4. Iniciando a aplicação
 
-### Mudando no nome do aplicativo:
-heroku apps:rename webchat-terminal --app still-mesa-13667
-
-### Mudando o nome do remote
-git remote rename heroku webchat-terminal
-
-2. Variáveis de ambiente
-heroku config:set <NOME_DA_VARIAVEL>=<valor> --app <nomeDoAplicativo>
-### Exemplo:
-heroku config:set MESSAGE='Variáveis funcionam!!!' --app nome-do-seu-app-12345
-
-### Vendo quais variáveis estão configuradas na aplicação
-heroku config --app <nomeDoAplicativo>
-
-# Fazendo deploy no heroku
-
-```javaScript
-git push <remote> <branch-do-git>:master git push <nome-da-aplicacao>
-git push heroku master: master git push webchat-terminal
+#### 4.1. Modo normal:
 ```
-3. Configurar as variáveis de ambiente
-heroku config:set PM2_PUBLIC_KEY="<valor>" --app <nomeDaAplicacao>
-heroku config:set PORT="3000" --app webchat-terminal
+node index.js
+```
+
+ou
+
+#### 4.2 Modo de desenvolvimento:
+```
+npm run dev
+```
+</br>
+
+# Utilizando o chat na rede local
+Para acessar o chat em uma rede, seja por uma rede Wifi ou por cabeamento, basta ir na barra de url do navegador e digitar o ip da máquina que está executando o código e a porta.
+
+![image](./images/web-chat-terminal-in-server.png)
+
+No linux, você pode descobrir o ip da máquina pelo seguite comando:
+```
+ifconfig
+```
+
+No meu caso, o ip da máquina que está executando a aplicação é `192.168.2.104` e a porta utilizada é a `3000`.
+
+```
+192.168.2.104:3000
+```
+E pronto, agora qualquer um da rede pode conversar no chat.
+![image](./web-chat-terminal-in-smartphone.png)
+
+</br></br>
+
+# Alterando a porta da aplicação
+A configuração da porta utilizada pela aplicação é feita na variável de ambiente que deve ficar na raiz da pasta.
+
+Quando você fizer o clone do projeto, não encontrará esse arquivo, pois ele está listado no .gitignore, uma vez que este arquivo normalmente é utilizado para armazenar informações sensíveis, como senhas ou chaves de criptografia.
+Apesar de não ser o caso, é bom manter o hábito 😉.
+</br></br>
+
+### Criando e configurando a variável de ambiente
+Vá na raiz do projeto e crie um arquivo `.env`, e depois coloque o seguinte conteúdo dentro do arquivo:
+```
+PORT=3000
+```
+
+O arquivo index.js busca a constante PORT dentro do arquivo `.env`, e caso ele não encontre, ele usa a porta `3000` por padrão.  
+
+# Informações adicionais
+Eu desenvolvi essa aplicação para desenvovler e treinar algumas habilidades, ou seja, é uma aplicação para fins didáticos e não comerciais. Por isso alguns arquivos, existem trechos de código comentados, de alguns recursos e estilos que não estão habilitados na aplicação em funcionamento.
+
+A função desses trechos comentados, é servir de resumo e lembrente (pra mim e para qualquer um que esteja olhando o código) de como utilizar esses funcionalidades.
+</br>
+

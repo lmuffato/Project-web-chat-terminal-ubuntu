@@ -22,12 +22,12 @@ const io = require('socket.io')(http, {
 });
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/front-end')));
 
-require('./sockets/socket')(io);
+require('./back-end/socketControllers')(io);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/chat.html'));
+  res.sendFile(path.join(__dirname, '/front-end/chat.html'));
 });
 
 http.listen(PORT, () => {
